@@ -1,0 +1,5 @@
+
+This project includes two Python scripts to:
+ 1) scrape results from http://192.49.229.35/ in HTML format
+ 2) parse scraped HTML to a convenient dictionary
+
