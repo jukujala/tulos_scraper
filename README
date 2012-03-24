@@ -1,5 +1,24 @@
 
+* What?
+
 This project includes two Python scripts to:
- 1) scrape results from http://192.49.229.35/ in HTML format
- 2) parse scraped HTML to a convenient dictionary
+ 1) scrape Finnish election results from http://192.49.229.35/ in HTML format
+ 2) parse scraped HTML to a convenient dictionary in JSON or pickle format
+
+* Usage:
+
+# pull election results of Finnish 2012 election results (replace URL with the elections you are interested int)
+pull_results.py http://192.49.229.35/TP2012K1/s/tulos/lasktila.html matched_pages.pickle
+
+# parse results in scraped HTML
+parse_results.py matched_pages.pickle parsed_results.json
+
+* Output
+
+File parsed_results.output is in JSON format that is:
+{ "<URL of local area results>" : { "<candidate name>" : <number of votes as string>,... }, ...
+
+For example parsed_results.json above begins as follows:
+{"http://192.49.229.35/TP2012K1/s/tulos/aluetulos_499011.html": {"Arhinm\u00e4ki, Paavo": "15", "Haavisto, Pekka": "62", "Lipponen, Paavo": "126", "V\u00e4yrynen, Paavo": "98", "Essayah, Sari": "12", "Soini, Timo": "81", "Biaudet, Eva": "172", "Niinist\u00f6, Sauli": "268"}, ...
+
 

@@ -1,6 +1,6 @@
 
 # parse results scraped using pull_results.py
-# output is more convenient dictionary
+# output is a dictionary in JSON or pickle
 
 import json
 import pickle
@@ -55,7 +55,7 @@ def parse_pages(d):
 
 def usage():
   print "transforms scraped election results to more convenient dictionary"
-  print "%s matched_pages.pickle parsed_results.pickle" %sys.argv[0]
+  print "%s matched_pages.pickle parsed_results.output" %sys.argv[0]
 
 def parse_cp():
   if len(sys.argv) != 3:
@@ -68,7 +68,10 @@ def main():
   (d,dd) = pickle.load(open(infn))
   f = open(outfn,"w")
   pages = parse_pages(dd)
-  pickle.dump(pages,f)
+  #output in pickle:
+  #pickle.dump(pages,f)
+  #output in json:
+  import json; json.dump(pages,f)
   f.close()
 
 if __name__ == "__main__":
